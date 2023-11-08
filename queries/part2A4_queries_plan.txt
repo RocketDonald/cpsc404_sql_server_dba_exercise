@@ -1,0 +1,4 @@
+-- Table Scan
+select c1, c2
+from T0
+where c1 = 1000
