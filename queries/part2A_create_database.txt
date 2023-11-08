@@ -1,0 +1,17 @@
+if db_id("StatisticsTest_mrdonald") is null
+    create database StatisticsTest_mrdonald;
+go
+alter database StatisticsTest set recovery simple
+go
+use StatisticsTest_mrdonald
+go
+
+-- Create a Numbers table
+create table Numbers(n int not null primary key);
+go
+insert Numbers(n)
+    select rn from (select row_number()
+                            over(order by current_timestamp) as rn
+                        from sys.trace_event_bindings as b1, 
+                            sys.trace_event_bindings as b2) as rd
+    where rn <= 1000000
