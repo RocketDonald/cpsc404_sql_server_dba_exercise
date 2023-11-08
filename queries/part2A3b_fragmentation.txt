@@ -10,3 +10,8 @@ go
 
 --create a nonclustered index on column c1 
 create nonclustered index ix_T0_1 on T0(c1)
+
+-- Display the fragmentation
+select Top(10) [c1],[c2]
+from T0
+order by 1 desc
