@@ -2,3 +2,13 @@
 select c1, c2
 from T0
 where c1 = 1000
+
+-- Index seek (nonclustered) with RID lookup
+select c1, c2
+from T0
+where c1 = 2000
+
+-- Index seek (nonclustered) with non-existing value
+select c1, c2
+from T0
+where c1 = 1500
