@@ -1,0 +1,8 @@
+-- The following query will execute a full table scan instead of index seek
+-- We just declared 2000 as a variable.
+declare @x int
+set @x = 2000
+select c1, c2
+from T0
+where c1 = @x
+
