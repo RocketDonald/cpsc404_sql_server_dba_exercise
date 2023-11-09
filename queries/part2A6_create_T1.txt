@@ -1,0 +1,17 @@
+if (object_id('T1', 'U') is not null)
+    drop table T1
+go
+create table T1
+    (
+        x int not null,
+        a varchar(20) not null,
+        b int not null,
+        y char(20) null
+    )
+go
+insert T1(x, a, b)
+    select n%1000, n%3000, n%5000
+    from Numbers
+    where n <= 100000
+go
+create nonclustered index IxT1_x on T1(x)
