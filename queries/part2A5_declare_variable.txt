@@ -5,4 +5,3 @@ set @x = 2000
 select c1, c2
 from T0
 where c1 = @x
-
