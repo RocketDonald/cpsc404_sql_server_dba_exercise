@@ -2,7 +2,7 @@
 drop database StatisticsTest_mrdonald
 
 -- Create the same (empty) database, and specify simple recovery for the log
-if db_id("StatisticsTest_mrdonald") is null
+if db_id('StatisticsTest_mrdonald') is null
     create database StatisticsTest_mrdonald;
 go
 alter database StatisticsTest_mrdonald set recovery simple
