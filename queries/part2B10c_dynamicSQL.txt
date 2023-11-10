@@ -1,0 +1,8 @@
+declare @x int,
+        @cmd nvarchar(300)
+set @x = 2000
+set @cmd = 'select c1, c2 from T0 where c1='
+         + cast (@x as nvarchar(8))
+
+-- execute
+exec(@cmd)
