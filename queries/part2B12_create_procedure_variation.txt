@@ -1,0 +1,9 @@
+create procedure new_getT0Values(@x int) as
+    set @x = @x * 2
+    select c1, c2 from T0
+    where c1 = @x
+
+-- execute in all cases
+exec new_getT0Values 2000;
+exec new_getT0Values 1000;
+exec new_getT0Values 500;
