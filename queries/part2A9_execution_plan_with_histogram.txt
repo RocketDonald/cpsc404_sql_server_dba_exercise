@@ -1,0 +1,14 @@
+-- Part a
+select *
+from T1
+where x = 100
+
+-- Part b
+select *
+from T1
+where a = '100'
+
+-- Part c
+select *
+from T1
+where a = '234' and b = 1234
