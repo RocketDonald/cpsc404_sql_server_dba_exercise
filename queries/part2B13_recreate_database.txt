@@ -41,3 +41,6 @@ alter table Product add constraint PK_Product
 
 -- Create nonclustered index
 create nonclustered index ix_Product_LastUpdate on Product(LastUpdate)
+
+-- Create nonclustered index
+create nonclustered index ix_Product_ListPrice on Product(ListPrice)
