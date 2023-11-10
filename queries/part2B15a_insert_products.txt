@@ -1,0 +1,8 @@
+-- Insert N products into the Product table
+insert Product(LastUpdate, ListPrice)
+    select  dateadd(day,
+            abs(checksum(newid())) % 3250,
+            '20000101'),
+            0.01*(abs(checksum(newid())) % 20000)
+from Numbers 
+where n <= 1000000; 
