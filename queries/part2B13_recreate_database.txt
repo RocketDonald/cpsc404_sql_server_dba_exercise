@@ -5,7 +5,7 @@ drop database StatisticsTest_mrdonald
 if db_id("StatisticsTest_mrdonald") is null
     create database StatisticsTest_mrdonald;
 go
-alter database StatisticsTest set recovery simple
+alter database StatisticsTest_mrdonald set recovery simple
 go
 alter database StatisticsTest_mrdonald set auto_update_statistics off
 go
