@@ -1,0 +1,5 @@
+-- Unclustered Index on LastUpdate
+create nonclustered index ix_Product_LastUpdate on Product(LastUpdate) 
+
+-- Unclustered index on ListPrice
+create nonclustered index ix_Product_ListPrice on Product(ListPrice) 
