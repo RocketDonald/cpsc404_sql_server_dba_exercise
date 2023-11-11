@@ -1,0 +1,37 @@
+set statistics io on 
+
+-- Query 1
+select count(*)
+from Product
+where ProductID between 10000 and 10019;
+
+-- Query 2
+select count(*)
+from Product
+where ProductID < 50000;
+
+-- Query 3
+select count(*)
+from Product
+where ListPrice <= 0.10;
+
+-- Query 4
+select *
+from Product
+where ListPrice <= 0.10;
+
+-- Query 5
+select LastUpdate, count(*) as count
+from Product
+group by LastUpdate;
+
+-- Query 6
+select ListPrice, count(*) as count
+from Product
+where ListPrice < 0.05 and LastUpdate < '2001-01-10'
+group by ListPrice;
+
+-- Query 7
+select filler, count(*) as count
+from Product
+group by filler; 
