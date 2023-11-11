@@ -1,0 +1,3 @@
+-- Create clustering index
+alter table Product add constraint PK_Product
+    primary key clustered (ProductId)
