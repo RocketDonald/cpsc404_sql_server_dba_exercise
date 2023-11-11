@@ -1,0 +1,42 @@
+-- Drop my database
+drop database StatisticsTest_mrdonald
+
+-- Create the same (empty) database, and specify simple recovery for the log
+if db_id('StatisticsTest_mrdonald') is null
+    create database StatisticsTest_mrdonald;
+go
+alter database StatisticsTest_mrdonald set recovery simple
+go
+alter database StatisticsTest_mrdonald set auto_update_statistics off
+go
+alter database StatisticsTest_mrdonald set auto_update_statistics_async off
+go
+use StatisticsTest_mrdonald
+go
+
+-- Create a Numbers table
+create table Numbers(n int not null primary key);
+go
+
+-- Insert 1,000,000 rows
+insert Numbers(n)
+    select rn from (select row_number()
+                            over(order by current_timestamp) as rn
+                        from sys.trace_event_bindings as b1, 
+                            sys.trace_event_bindings as b2) as rd
+    where rn <= 1000000
+
+-- Create table Product
+if (object_id('Product', 'U') is not null)
+    drop table Product  
+go 
+create table Product  (
+    ProductId int identity(1,1) not null  
+    ,ListPrice decimal(8,2) not null    
+    ,LastUpdate date not null default current_timestamp   
+    ,filler nchar(500) not null default '#') 
+go 
+alter table Product add constraint PK_Product   
+    primary key clustered (ProductId) 
+
+-- Do not build any indexes on the Product table, yet
